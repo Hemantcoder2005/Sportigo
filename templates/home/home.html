@@ -8,25 +8,97 @@
 
 {%if not guard_access%}
 {%load static%}
+<style>
+    body{
+        background: linear-gradient(to bottom, #4bbff0, #cbe4ee);
+
+    }
+    .liveTracking{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50%;
+        margin: 2%;
+        background: linear-gradient(to bottom, rgba(196, 232, 252, 0.8), rgba(168, 224, 249, 0.5));
+        border-radius: 25px;
+        
+    }
+    .innerLive{
+        width: 96%;
+        height: 90%;
+    }
+    .about{
+        margin: 2%;
+    }
+</style>
 <link rel="stylesheet" href="{%static 'css/home.css'%}">
 <div class="userPlayingNotification">
+    <div class="liveTracking ">
     
+        <div class="innerLive ">
+            <h2>Your Request</h2>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Sports</th>
+                    <th>Status</th>
+                </tr>
+                {%for val in all_val%}
+                <tr>
+                    <th>{{val.user}}</th>
+                    <th>{{val.sporting}}</th>
+                    {%if val.accept%}
+                    <th style="color: green;" >Playing</th>
+                    {%else%}
+                    <th style="color: red;" >Request Pending</th>
+    
+                    {%endif%}
+                </tr>
+                {%endfor%}
+                
+            </table>
+        </div>
+        
 </div>
 <div class="about">
-    <div class="texting border">
+    <div class="texting ">
         <h1>About Sports Block</h1>
             <br>
         <p>The institute is equipped with a number of indoor and outdoor sports facilities. Institute new sports complex is equipped with badminton court, Table Tennis tables, Pool tables Squash courts, Swimming pool, while Chess boards and Carom boards are available in the hostel common rooms. The institute also has a multi-purpose sports field, two tennis courts, a basketball court, a volleyball field with lighting facilities at the courts. Institute has also provided coach facility for students; institute self-growth activities include active participation from the students under various sports activities.
             The institute’s gym offers facilities like treadmills, cross-trainer, recumbent bike, abdominal machine and dumbbells. Gym trainers are also available during morning and evening sessions.</p>
     </div>
-    <div class="tour border">
-        <iframe class="youtube-video" width="560" height="315" src="https://www.youtube.com/embed/emN0SaK0LBs?si=wpnEZqRzOCumGSZw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <div class="tour ">
+        <iframe class="youtube-video" width="560" height="315" src="https://www.youtube.com/embed/emN0SaK0LBs?si=wpnEZqRzOCumGSZw" title="YouTube video player" frame="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
         <img  src="{%static 'img/sportComplex.jpg'%}" alt="">
     </div>
 </div>
-<div class="liveTracking">
-    <h1>Live Tracking</h1>
+<div class="liveTracking ">
+    
+    <div class="innerLive ">
+        <h2>LiveTracking</h2>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Sport</th>
+                <th>Status</th>
+            </tr>
+            {%for val in all_val%}
+            <tr>
+                <th>{{val.user}}</th>
+                <th>{{val.sporting}}</th>
+                {%if val.accept%}
+                <th style="color: green;" >Playing</th>
+                {%else%}
+                <th style="color: red;" >Request Pending</th>
+
+                {%endif%}
+            </tr>
+            {%endfor%}
+            
+        </table>
+    </div>
+    
 </div>
 <div class="issueEquipment"></div>
 <div class="contactUS"></div>

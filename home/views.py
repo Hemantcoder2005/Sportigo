@@ -17,7 +17,16 @@ def home(request):
     guard_access=models.CustomUser.objects.get(username=request.user).guard_access
     data['guard_access']=guard_access
 
-    # if(guard_access==False and ):
+    user = models.CustomUser.objects.get(username=request.user.username)
+
+    if(guard_access==False ):
+        all_val_user=issued.objects.filter(user=user)
+        data['sendNotification']=all_val_user
+
+    all_val=issued.objects.all()
+    data["all_val"]=all_val
+    print(all_val)
+    
     return render(request,'home/home.html',data)
 def issueEquipment(request):
     if request.method == 'POST':

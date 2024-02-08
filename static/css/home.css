@@ -1,3 +1,4 @@
+
 .navbar{
     display: flex;
     align-items: center;
@@ -34,8 +35,16 @@
     filter: blur(4px);
     
 }
+.about{
+    position: relative;
+    background: linear-gradient(to bottom, rgba(196, 232, 252, 0.8), rgba(168, 224, 249, 0.5));
+    border: 2px  solid #c4dbe4;
+    border-radius: 25px;
+    
+}
 .youtube-video{
     position: absolute;
+    top: 23px;
     z-index: 2;
     padding-top: 3%;
     padding-left: 3%;
@@ -51,4 +60,28 @@
   .account-icon img {
     width: 100%; /* Makes the image fill the circular container */
     height: auto; /* Maintains aspect ratio */
+  }
+
+  .innerLive {
+    text-align: center; /* Align the content of .innerLive to the center horizontally */
+  }
+  
+  .innerLive table {
+    width: 100%; /* Make the table fill the width of its container */
+    border-collapse: collapse; /* Collapse table borders */
+    margin: 25px;
+    padding-right:10px ;
+}
+  
+  .innerLive th, .innerLive td {
+    border: 1px solid #dddddd; /* Add borders to table cells */
+    padding: 8px; /* Add padding to table cells */
+  }
+  
+  .innerLive th {
+    background-color: #f2f2f2; /* Background color for table headers */
+  }
+  
+  .innerLive h2 {
+    margin-top: 0; /* Remove default margin from h2 element */
   }
