@@ -1,16 +1,95 @@
-{%extends 'base.html'%}
-{%block title%}Home{%endblock%}
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
 
+{% block links %}{% endblock %}
 
-{%block links%}{%endblock%}
+{% block body %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/issue.css' %}">
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
 
-{%block body%}
-{%load static%}
-<link rel="stylesheet" href="{%static 'css/issue.css'%}">
-<link rel="stylesheet" href="{%static 'css/home.css'%}">
+<style>
+    /* CSS for the body */
+    body {
+        background-image: url('static/img/sportComplex.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
 
-<div class="issue-outer border">
-    <div class="issue-inner border">
+    /* Container for the form */
+    .issue-outer {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .issue-inner {
+        width: 40%;
+        height: 30%;
+        background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+    }
+
+    /* Style the dropdown */
+    #myDropdown {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    /* Input field and '/ ' */
+    .container {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .container input {
+        width: 50px;
+        height: 34px;
+        margin-right: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        padding: 5px;
+        box-sizing: border-box;
+    }
+
+    .outof {
+        font-size: 16px;
+    }
+
+    /* Issue button */
+    #issue-button {
+        width: 100%;
+        padding: 12px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    #issue-button:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+<div class="issue-outer">
+    <div class="issue-inner">
         <form action="" method="POST">
             {% csrf_token %}
             <select id="myDropdown" name="sport">
@@ -22,64 +101,54 @@
 
             <div class="container">
                 <input type="text" id="ava" class="ava" name="availability">
-                <p id="outof" class="outof">/</p>
+                <p class="outof"></p>
             </div>
 
-            <button type="submit">Issue Equipment</button>
+            <button id="issue-button" type="submit">Issue Equipment</button>
         </form>
     </div>
 </div>
 
-
 <script>
     var dropdown = document.getElementById("myDropdown");
-    var outof=document.getElementById("outof")
-    var ava_inp=document.getElementById("nonNumericInput")
-// Add event listener to the dropdown
-dropdown.addEventListener("change", function() {
-  var selectedOption = dropdown.value;
+    var outof = document.querySelector(".outof");
 
+    // Add event listener to the dropdown
+    dropdown.addEventListener("change", function() {
+        var selectedOption = dropdown.value;
+        // Your code here
+    });
 
-});
+    // Async function to fetch availability
+    async function fetchAvailability() {
+        const csrfToken = getCookie('csrftoken');
 
-
-
-async function ava() {
-    
-    const csrfToken = getCookie('csrftoken');
-
-    try {
-        const response = await fetch('/issue/ava', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': csrfToken
-            },
-            body: JSON.stringify({'sport':1})
-        });
-        const responseData = await response.json();
-        console.log(responseData)
-
-        outof.innerHTML=responseData['ava']
-
-        
-    } catch (error) {
-        console.error('Error during login:', error);
-        
+        try {
+            const response = await fetch('/issue/ava', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrfToken
+                },
+                body: JSON.stringify({'sport': 1})
+            });
+            const responseData = await response.json();
+            console.log(responseData);
+            outof.innerHTML = +responseData['ava'];
+        } catch (error) {
+            console.error('Error during login:', error);
+        }
     }
-}
-// Function to get CSRF token from cookie
-function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-}
 
+    // Function to get CSRF token from cookie
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+    }
 
-
-ava()
-
+    // Call the fetchAvailability function
+    fetchAvailability();
 </script>
 
-
-{%endblock%}
+{% endblock %}
