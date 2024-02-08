@@ -15,6 +15,9 @@
 3. *Secure Sign-Out Process*:
    - When returning equipment, students must sign out to verify the return.
    - This enhances security and accountability.
+   
+4.  *Making our own API*: 
+   - We have created a custom API using JavaScript that interacts with Sqlite for data storage and to accept queries.
 
 ## Look at the Figma Design
 <a href="https://www.figma.com/file/tcvaxu6Qg2KwETBUb2CC9u/Hackathon?type=design&node-id=2-3&mode=design&t=uEbCvYsw7OpXXE68-0"
@@ -27,36 +30,45 @@ Follow these steps to set up Sportigo locally:
 
 1. *Clone the Repository*:
    
-   git clone https://github.com/your-username/sportigo.git
+   git clone https://github.com/Hemantcoder2005/sportigo.git
    
 
 2. *Install Dependencies*:
    
-   cd sportigo
+   pip install django
+   pip install django-browser-reload
    
    
 
-3. *Configure Environment Variables*:
-   - Create a .env file based on the provided .env.example.
-   - Set up database credentials, API keys, and other necessary variables.
-
-4. *Run the Application*:
+3. *Run the Application*:
    
-   npm start
+   python manage.py runserver
    
 
 ## Tech Stack
 
 - *Frontend*:
-  - HTML, CSS, JavaScript (or any frontend framework of your choice)
-  - Jango, Angular, or Vue.js (if using a framework)
+  - HTML, CSS, JavaScript
+  - Django
 
 - *Backend*:
-  - Node.js, Express.js
-  - MongoDB or PostgreSQL (for database)
+  - Sqlite (for database)
 
 - *Authentication & Authorization*:
-  - Implement user authentication (e.g., OAuth, JWT) for secure access.
+  - Implementing  a custom user model for users and guard.
+## Problems
+- designing
+- data gathering
+- handling multiple types of facilities (like gym, swimming pool etc.)
+- authentication system
+- incorporating api into our code
+- could not make interface for the guard 
+
+## Future Goals
+-  Improve UI/UX
+-  Handling more than one type of facility
+-  Making QR scanner accessible to make it easier to log in
+-  Adding payment gateway integration
 
 ## Contributing
 
@@ -68,9 +80,6 @@ We welcome contributions! If you'd like to improve Sportigo, follow these steps:
 4. Push to the branch: git push origin feature/your-feature-name.
 5. Open a pull request.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
@@ -79,4 +88,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Feel free to customize this README to match your project's specifics. Good luck with Sportigo! 🏀🎾🏓
 ```
-Remember to replace placeholders like your-username, your-feature-name, and LICENSE with actual values relevant to your project. Happy coding! 🚀
+Remember to replace placeholders like your-username, your-feature-name, and LICENSE with actual values relevant to your project. Happy coding! 🚀'''
+
