@@ -20,8 +20,7 @@
    - We have created a custom API using JavaScript that interacts with Sqlite for data storage and to accept queries.
 
 ## Look at the Figma Design
-<a href="https://www.figma.com/file/tcvaxu6Qg2KwETBUb2CC9u/Hackathon?type=design&node-id=2-3&mode=design&t=uEbCvYsw7OpXXE68-0"
-target="_blank"></a>
+``https://www.figma.com/file/tcvaxu6Qg2KwETBUb2CC9u/Hackathon?type=design&node-id=2-3&mode=design&t=uEbCvYsw7OpXXE68-0``
 
 
 ## Getting Started
