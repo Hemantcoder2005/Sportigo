@@ -1,0 +1,35 @@
+.issue-outer{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.issue-inner{
+    width: 40%;
+    height: 70%;
+
+}
+
+/* Style the dropdown */
+#myDropdown {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Style the options */
+  #myDropdown option {
+    padding: 10px;
+    font-size: 16px;
+  }
+  .container {
+    display: flex;
+    align-items: center;
+  }
+  
+.container input{
+    width: 50px;
+    height: 34px;
+}

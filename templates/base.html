@@ -12,9 +12,29 @@
     {% load django_browser_reload %}
 
     <div class="navbar border">
-        Navbar
+        <!-- <li>
+            <ul>Home</ul>
+            <ul>Live Tracking</ul>
+            <ul>Issue IssueEquipment</ul>
+            <ul>Availability</ul>
+        </li> -->
+        <div class="logo">
+            <img src="" alt="Sportigo">
+        </div>
+        <div class="navs border">
+        <li>
+            <a href="/"><ul>Home</ul></a>
+            <a href="#livetracking"><ul>Live Tracking</ul></a>
+            <a href="/issue"><ul>Issue Equipment</ul></a>
+            <a href="#availability"><ul>Availability</ul></a>
+        </li>
+        </div>
+
+        <div class="account border">
+            <img src="https://th.bing.com/th/id/OIP.7G6XwS4BzQWHQl-VoyvCFgHaHa?rs=1&pid=ImgDetMain" alt="">
+        </div>
     </div>
     {%block body%}{%endblock%}
 </body>
-<script src="{%static 'js/home.js'%}"></script>
+<script src="{%static 'js/login.js'%}"></script>
 </html>

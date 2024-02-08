@@ -1,0 +1,85 @@
+{%extends 'base.html'%}
+{%block title%}Home{%endblock%}
+
+
+{%block links%}{%endblock%}
+
+{%block body%}
+{%load static%}
+<link rel="stylesheet" href="{%static 'css/issue.css'%}">
+<link rel="stylesheet" href="{%static 'css/home.css'%}">
+
+<div class="issue-outer border">
+    <div class="issue-inner border">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <select id="myDropdown" name="sport">
+                <option value="" selected>Select Sports</option>
+                <option value="1">Basketball</option>
+                <option value="2">Lawn Tennis</option>
+                <option value="3">Table Tennis</option>
+            </select>
+
+            <div class="container">
+                <input type="text" id="ava" class="ava" name="availability">
+                <p id="outof" class="outof">/</p>
+            </div>
+
+            <button type="submit">Issue Equipment</button>
+        </form>
+    </div>
+</div>
+
+
+<script>
+    var dropdown = document.getElementById("myDropdown");
+    var outof=document.getElementById("outof")
+    var ava_inp=document.getElementById("nonNumericInput")
+// Add event listener to the dropdown
+dropdown.addEventListener("change", function() {
+  var selectedOption = dropdown.value;
+
+
+});
+
+
+
+async function ava() {
+    
+    const csrfToken = getCookie('csrftoken');
+
+    try {
+        const response = await fetch('/issue/ava', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrfToken
+            },
+            body: JSON.stringify({'sport':1})
+        });
+        const responseData = await response.json();
+        console.log(responseData)
+
+        outof.innerHTML=responseData['ava']
+
+        
+    } catch (error) {
+        console.error('Error during login:', error);
+        
+    }
+}
+// Function to get CSRF token from cookie
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
+
+
+ava()
+
+</script>
+
+
+{%endblock%}

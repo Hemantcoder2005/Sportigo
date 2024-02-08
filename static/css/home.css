@@ -1,0 +1,54 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.navs li{
+    display: flex;
+    gap: 72px;
+
+}
+.about{
+    display: flex;
+    height: 50%;
+}
+.texting{
+    padding: 32px;
+    width: 60vw;
+}
+.texting h1{
+    font-size: 50px;
+}
+.texting p{
+    font-size: 22px;
+}
+.tour{
+    width: 40vw;
+}
+.tour img{
+    position: relative;
+    height: 50vh;
+    width: 100%;
+    object-fit: cover;
+    filter: blur(4px);
+    
+}
+.youtube-video{
+    position: absolute;
+    z-index: 2;
+    padding-top: 3%;
+    padding-left: 3%;
+    
+}
+.account {
+    width: 64px; /* Adjust size as needed */
+    height: 64px; /* Adjust size as needed */
+    border-radius: 50%; /* Makes the div circular */
+    overflow: hidden; /* Ensures the image stays within the circular shape */
+  }
+
+  .account-icon img {
+    width: 100%; /* Makes the image fill the circular container */
+    height: auto; /* Maintains aspect ratio */
+  }

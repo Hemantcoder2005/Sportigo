@@ -5,11 +5,36 @@
 {%block links%}{%endblock%}
 
 {%block body%}
+
+{%if not guard_access%}
+{%load static%}
+<link rel="stylesheet" href="{%static 'css/home.css'%}">
 <div class="userPlayingNotification">
     
 </div>
+<div class="about">
+    <div class="texting border">
+        <h1>About Sports Block</h1>
+            <br>
+        <p>The institute is equipped with a number of indoor and outdoor sports facilities. Institute new sports complex is equipped with badminton court, Table Tennis tables, Pool tables Squash courts, Swimming pool, while Chess boards and Carom boards are available in the hostel common rooms. The institute also has a multi-purpose sports field, two tennis courts, a basketball court, a volleyball field with lighting facilities at the courts. Institute has also provided coach facility for students; institute self-growth activities include active participation from the students under various sports activities.
+            The institute’s gym offers facilities like treadmills, cross-trainer, recumbent bike, abdominal machine and dumbbells. Gym trainers are also available during morning and evening sessions.</p>
+    </div>
+    <div class="tour border">
+        <iframe class="youtube-video" width="560" height="315" src="https://www.youtube.com/embed/emN0SaK0LBs?si=wpnEZqRzOCumGSZw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-<div class="liveTracking"></div>
+        <img  src="{%static 'img/sportComplex.jpg'%}" alt="">
+    </div>
+</div>
+<div class="liveTracking">
+    <h1>Live Tracking</h1>
+</div>
 <div class="issueEquipment"></div>
 <div class="contactUS"></div>
+
+
+{%else%}
+guard_access
+{%endif%}
+<script src="{%static 'js/home.js'%}"></script>
+
 {%endblock%}
