@@ -58,6 +58,7 @@ Follow these steps to set up Sportigo locally:
 
 - *Authentication & Authorization*:
   - Implementing  a custom user model for users and guard.
+
 ## Problems
 - designing
 - data gathering
@@ -82,7 +83,7 @@ We welcome contributions! If you'd like to improve Sportigo, follow these steps:
 4. Push to the branch: git push origin feature/your-feature-name.
 5. Open a pull request.
 
-##Team- ToteCodeKarenge
+## Team- ToteCodeKarenge
 - Hemant Narula
 - Gopal Tiwari
 - Girik Aggarwal
