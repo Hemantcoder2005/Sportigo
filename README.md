@@ -15,7 +15,7 @@
 3. *Secure Sign-Out Process*:
    - When returning equipment, students must sign out to verify the return.
    - This enhances security and accountability.
-   
+
 4.  *Making our own API*: 
    - We have created a custom API using JavaScript that interacts with Sqlite for data storage and to accept queries.
 
@@ -35,16 +35,18 @@ Follow these steps to set up Sportigo locally:
 
 2. *Install Dependencies*:
    
-   pip install django
-   pip install django-browser-reload
+   ``pip install django``
+   ``pip install django-browser-reload``
    
    
 
 3. *Run the Application*:
    
-   python manage.py runserver
+   ``python manage.py runserver``
    
-
+4. *Fake Login*:
+-  Username: ``hemant2324``
+-  Password:  ``sam``
 ## Tech Stack
 
 - *Frontend*:
@@ -80,13 +82,16 @@ We welcome contributions! If you'd like to improve Sportigo, follow these steps:
 4. Push to the branch: git push origin feature/your-feature-name.
 5. Open a pull request.
 
-
+##Team- ToteCodeKarenge
+- Hemant Narula
+- Gopal Tiwari
+- Girik Aggarwal
+- Aditya Verma
+ 
 ## Acknowledgments
 
 - Inspired by the need to enhance sports facility management in colleges.
 - Thanks to all contributors who make Sportigo better!
 
-Feel free to customize this README to match your project's specifics. Good luck with Sportigo! 🏀🎾🏓
-```
-Remember to replace placeholders like your-username, your-feature-name, and LICENSE with actual values relevant to your project. Happy coding! 🚀'''
+
 
